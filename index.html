@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sklep Online</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('tlo.jpg') no-repeat left center, 
+                        url('spadajacy snieg.gif') no-repeat right center;
+            background-size: 50% 100%;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            width: 60%;
+            max-width: 800px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            overflow-y: auto;
+        }
+        h1 {
+            margin: 0 0 20px 0;
+            font-size: 36px;
+            color: #ff9800;
+            text-align: center;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            border: 2px solid white;
+            border-radius: 5px;
+        }
+        .nav a:hover {
+            background-color: white;
+            color: black;
+        }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+        .item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%; /* Zmniejszono szerokość */
+            margin: 0 auto; /* Wyśrodkowano elementy */
+        }
+        .item img {
+            max-width: 100%;
+            max-height: 200px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: 2px solid white;
+        }
+        .item h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
+        .item p {
+            margin: 0 0 15px 0;
+        }
+        .item button {
+            padding: 10px 20px;
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .item button:hover {
+            background-color: #e68900;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Nagłówek sklepu -->
+        <h1>Sklep z wszystkim</h1>
+
+        <nav class="nav">
+            <a href="#" onclick="showSection('popular')">Najpopularniejsze</a>
+            <a href="#" onclick="showSection('cheap')">Najtańsze</a>
+            <a href="#" onclick="showSection('all')">Wszystko</a>
+        </nav>
+
+        <div id="popular" class="section active">
+            <h2>Najpopularniejsze</h2>
+            <div class="item">
+                <img src="img/przedmiot1.jpg" alt="Przedmiot 1">
+                <h3>Przedmiot 1</h3>
+                <p>Opis popularnego przedmiotu 1.</p>
+                <button onclick="location.href='formularz.html'">Kup</button>
+            </div>
+            <div class="item">
+                <img src="img/przedmiot2.jpg" alt="Przedmiot 2">
+                <h3>Przedmiot 2</h3>
+                <p>Opis popularnego przedmiotu 2.</p>
+                <button onclick="location.href='formularz.html'">Kup</button>
+            </div>
+            <div class="item">
+                <img src="img/przedmiot3.jpg" alt="Przedmiot 3">
+                <h3>Przedmiot 3</h3>
+                <p>Opis popularnego przedmiotu 3.</p>
+                <button onclick="location.href='formularz.html'">Kup</button>
+            </div>
+        </div>
+
+        <div id="cheap" class="section">
+            <h2>Najtańsze</h2>
+            <div class="item">
+                <img src="img/przedmiot4.jpg" alt="Przedmiot 4">
+                <h3>Przedmiot 4</h3>
+                <p>Opis taniego przedmiotu 4.</p>
+                <button onclick="location.href='formularz.html'">Kup</button>
+            </div>
+            <div class="item">
+                <img src="img/przedmiot5.jpg" alt="Przedmiot 5">
+                <h3>Przedmiot 5</h3>
+                <p>Opis taniego przedmiotu 5.</p>
+                <button onclick="location.href='formularz.html'">Kup</button>
+            </div>
+            <div class="item">
+                <img src="img/przedmiot6.jpg" alt="Przedmiot 6">
+                <h3>Przedmiot 6</h3>
+                <p>Opis taniego przedmiotu 6.</p>
+                <button onclick="location.href='formularz.html'">Kup</button>
+            </div>
+        </div>
+
+        <div id="all" class="section">
+            <h2>Wszystkie przedmioty</h2>
+            <!-- Powtórz wszystkie przedmioty -->
+            <div class="item"><img src="img/przedmiot1.jpg" alt="Przedmiot 1"><h3>Przedmiot 1</h3><p>Opis przedmiotu 1.</p><button onclick="location.href='formularz.html'">Kup</button></div>
+            <div class="item"><img src="img/przedmiot2.jpg" alt="Przedmiot 2"><h3>Przedmiot 2</h3><p>Opis przedmiotu 2.</p><button onclick="location.href='formularz.html'">Kup</button></div>
+            <div class="item"><img src="img/przedmiot3.jpg" alt="Przedmiot 3"><h3>Przedmiot 3</h3><p>Opis przedmiotu 3.</p><button onclick="location.href='formularz.html'">Kup</button></div>
+            <!-- Dodaj kolejne przedmioty -->
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

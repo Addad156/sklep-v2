@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz Zakupu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: url('bank.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9); /* Półprzezroczyste tło dla czytelności */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            color: #fff;
+            background: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formularz Zakupu</h1>
+        <form action="potwierdzenie.html" method="GET"> 
+            <label for="address">Adres:</label>
+            <input type="text" id="address" name="address" placeholder="Wprowadź adres" required>
+            
+            <label for="zipcode">Kod pocztowy:</label>
+            <input type="text" id="zipcode" name="zipcode" placeholder="00-000" required>
+            
+            <label for="blik">Kod BLIK:</label>
+            <input type="text" id="blik" name="blik" placeholder="Wprowadź kod BLIK" required>
+            
+            <button type="submit">Potwierdź zakup</button>
+        </form>
+    </div>
+</body>
+</html>
